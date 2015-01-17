@@ -1,1 +1,15 @@
 ---
+- name: install git
+  apt: pkg=git
+
+- name: stop apache
+  service: name=apache2 state=stopped
+
+- name: get the source files
+  git: repo={{ webapp.repo }}
+       dest={{ webapp.path }}
+       version={{ webapp.version }}
+
+- name: start apache
+  service: name=apache2 state=started
+

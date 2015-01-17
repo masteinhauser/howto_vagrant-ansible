@@ -1,1 +1,5 @@
 ---
+webapp:
+  repo: https://github.com/TopShelfBullard/www_amb_com.git
+  path: /var/www/webapp/
+  version: master

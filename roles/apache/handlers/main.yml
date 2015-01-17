@@ -1,0 +1,6 @@
+---
+- name: reload apache
+  command: /etc/init.d/apache2 reload
+
+- name: restart apache
+  command: /etc/init.d/apache2 restart
