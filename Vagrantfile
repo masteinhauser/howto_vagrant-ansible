@@ -12,8 +12,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
 
   # default is a small vm
-  config.vm.box = BOX_NAME
-  config.vm.box_url = BOX_URL
+  config.vm.box = "ubuntu-trusty"
+  config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
   config.vm.provider "virtualbox" do |v|
     v.memory = 512
     v.cpus = 1
@@ -31,7 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = 'site.yml'
-    ansible.extra_vars = 'envs/vagrant/default.yml'
+    #ansible.extra_vars = 'envs/vagrant/default.yml'
     #ansible.verbose = 'vvvv'
     ansible.limit = 'all'
     ansible.sudo = true
